@@ -12,5 +12,7 @@
 
 - (instancetype)initWithTickets:( NSArray  *)tickets;
 - ( instancetype )initFavoriteTicketsController;
-    
+
+@property  ( nonatomic ,  strong )  NSNumber  * firstFlightNumber;
+@property  ( nonatomic )  int isStartFavorites;
 @end

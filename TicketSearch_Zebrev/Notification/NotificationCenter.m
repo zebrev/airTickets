@@ -60,11 +60,17 @@
 }
 
 
-- ( void )sendNotification:( Notification )notification {
+- ( void )sendNotification:( Notification )notification  ticketFlightNumber:(NSNumber * )ticketFlightNumber{
     
     if  ( @available (iOS  10.0 , *)) {
         
     UNMutableNotificationContent  *content = [[ UNMutableNotificationContent   alloc ]  init ];
+        
+        //Сохраним в контент номер билета, чтобы потом на него поставить фокус в списке избранных
+        NSDictionary *infoDict = [NSDictionary dictionaryWithObject:ticketFlightNumber forKey:@"ticketFlightNumber"];
+
+        content.userInfo=infoDict;
+        
         
         content. title  = notification. title ;
     
@@ -97,7 +103,7 @@
         
         NSLog(@"%ld - %ld - %ld - %ld",(long)newComponents.month,(long)newComponents.day,(long)newComponents.hour,(long)newComponents.minute);
         
-        NSLog(@"content = %@",content);
+        //NSLog(@"content = %@",content);
         
     UNCalendarNotificationTrigger  *trigger = [ UNCalendarNotificationTrigger triggerWithDateMatchingComponents :newComponents  repeats : NO ];
         
@@ -123,7 +129,7 @@
             
         }
         
-        NSLog(@"отправка напоминания %@ - %@",notification. title , notification. body);
+        //NSLog(@"отправка напоминания %@ - %@",notification. title , notification. body);
         [[ UIApplication   sharedApplication ] scheduleLocalNotification :localNotification];
         
     }
@@ -146,6 +152,19 @@ Notification  NotificationMake( NSString *  _Nullable  title,  NSString *  _Nonn
 - ( void )userNotificationCenter:( UNUserNotificationCenter *)center didReceiveNotificationResponse:( UNNotificationResponse *)response withCompletionHandler:( void (^)( void ))completionHandler {
 
     //NSLog(@"not1 = %@, id = %@",response.notification,response.actionIdentifier);
+
+    //NSDate *currentDate = [NSDate date];
+    //NSLog(@"%@", currentDate);
+    
+    UNNotificationContent *content =response.notification.request.content;
+    NSNumber * flightNumber =(NSNumber*)[content.userInfo objectForKey:@"ticketFlightNumber"];
+
+    //NSLog(@"flightNumber = %@",flightNumber);
+    
+    //NSString *itemName = [localNotif.userInfo objectForKey:@"Notification"];
+    
+    //NSLog(@"fireDate = %@",response.n);
+
     
     UIApplication *app                = [UIApplication sharedApplication];
     
@@ -158,7 +177,7 @@ Notification  NotificationMake( NSString *  _Nullable  title,  NSString *  _Nonn
     //[appDelegate.navigationController popToRootViewControllerAnimated:YES];
     
     for (id item in tabBarController.viewControllers) {
-        
+
         UIViewController *vc = item;
         
         NSUInteger index = [tabBarController.viewControllers indexOfObject:item];
@@ -168,41 +187,16 @@ Notification  NotificationMake( NSString *  _Nullable  title,  NSString *  _Nonn
         if ([vc.title isEqualToString:@"Favorites"]) {
 
             tabBarController.selectedIndex = index;
+            
+            UINavigationController *nc = (UINavigationController*)item;
+            TicketsViewController *favoriteViewController = (TicketsViewController *)nc.visibleViewController;
+            favoriteViewController.firstFlightNumber=flightNumber;
+            favoriteViewController.isStartFavorites =1;
+            
             break;
         }
     }
-
-    //[keyWindow.rootViewController setTabBarItem:ticketsViewController.tabBarItem];
-
-
-    //Анимация для перехода на вкладку "Избранное"
-    /*
-    CATransition *transition = [CATransition animation];
-    transition.duration = 1.35;
-    transition.timingFunction = [CAMediaTimingFunction      functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    transition.type = kCATransitionMoveIn;
-    transition.subtype =kCATransitionFromRight;
-    [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
-    //    [[self navigationController] showViewController:ticketsViewController sender :self];
-*/
-    
-    /*
-    app.keyWindow.rootViewController.childViewControllers
-    NSArray *oldNotifications         = [application scheduledLocalNotifications];
-    
-    if ([oldNotifications count] > 0) {
-        NSLog(@"count not = %ld",[oldNotifications count]);
-    }
-    for (UILocalNotification *aNotif in oldNotifications) {
-        //if([[aNotif.userInfo objectForKey:@"ID"] isEqualToString:@"0"]) {
-        
-        NSLog(@"user not = %@ - %@",aNotif.alertBody,aNotif.alertTitle);
-        //}
-    }
-    
-*/
-   
-   
+  
     completionHandler();
 
 }

@@ -20,7 +20,7 @@ typedef   struct  Notification {
 
 + ( instancetype   _Nonnull )sharedInstance;
 - ( void )registerService;
-- ( void )sendNotification:( Notification )notification;
+- ( void )sendNotification:( Notification )notification ticketFlightNumber:(NSNumber *_Nullable)ticketFlightNumber;
 
 Notification  NotificationMake( NSString *  _Nullable  title,  NSString *  _Nonnull  body,  NSDate *  _Nonnull  date, NSURL  *  _Nullable  imageURL);
 

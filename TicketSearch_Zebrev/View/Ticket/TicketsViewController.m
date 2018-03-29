@@ -21,19 +21,23 @@
 @property  ( nonatomic ,  strong )  UIDatePicker  *datePicker;
 @property  ( nonatomic ,  strong )  UITextField  *dateTextField;
 
+
+
 @end
 
 @implementation TicketsViewController {
 
-    BOOL  isFavorites;
+    BOOL isFavorites;
     TicketTableViewCell  *notificationCell;
 }
+
 
 - ( instancetype )initFavoriteTicketsController {
     self  = [ super   init ];
     
     if  ( self ) {
-        isFavorites  =  YES ;
+        isFavorites = YES;
+        self.isStartFavorites=1;
         self . tickets  = [ NSArray   new ];
         self . title  =  [@"favorites_header" localize];
         self . tableView . separatorStyle  =  UITableViewCellSeparatorStyleNone ;
@@ -46,6 +50,9 @@
 
 - ( instancetype )initWithTickets:( NSArray  *)tickets {
     self  = [ super   init ];
+    
+    self.isStartFavorites=0;
+    
     if  ( self )
     {
         _tickets  = tickets;
@@ -73,15 +80,54 @@
     return   self ;
 }
 
+
+- (  void) viewDidLoad {
+    [  super  viewDidLoad];
+    
+}
+
+
 - ( void )viewDidAppear:( BOOL )animated {
     [ super   viewDidAppear :animated];
+ 
+    if (self.isStartFavorites)
+        isFavorites= YES;
     
+    //Считаем список избранных билетов из CoreData
     if  ( isFavorites ) {
+        
         self . navigationController . navigationBar . prefersLargeTitles  =  YES ;
         _tickets  = [[ CoreDataHelper  sharedInstance ]  favorites ];
         [ self . tableView   reloadData ];
     }
+
+    //Если на старте задан определенный билет - найдем его в списке
+    if (self.firstFlightNumber) {
+    //NSLog(@"first number = %@",self.firstFlightNumber);
     
+        //список массив билетов
+        for (id item in self.tickets) {
+            
+            FavoriteTicket * ticket = item;
+            
+            //определим индекс билета
+            NSUInteger index = [self.tickets indexOfObject:item];
+            
+//            NSLog(@"index = %ld",index);
+            
+            int flightNumber =ticket.flightNumber;
+            
+            if (flightNumber==self.firstFlightNumber.intValue) {
+
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+
+                [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+
+                self.firstFlightNumber=nil;
+                break;
+            }
+        }
+    }
 }
 
 
@@ -93,6 +139,7 @@
 
 - ( UITableViewCell *)tableView:( UITableView *)tableView cellForRowAtIndexPath:( NSIndexPath *)indexPath {
     
+   
     TicketTableViewCell *cell = [tableView  dequeueReusableCellWithIdentifier :TicketCellReuseIdentifier forIndexPath :indexPath];
     
     if  ( isFavorites ) {
@@ -174,6 +221,7 @@ return  cell;
         
         notificationCell  = [tableView  cellForRowAtIndexPath :indexPath];
         
+        NSLog(@"notification = %@ ",notificationCell.ticket);
         [ _dateTextField   becomeFirstResponder ];
         
     }];
@@ -199,26 +247,34 @@ return  cell;
         
            if  ( notificationCell.airlineLogoView . image ) {
             
-            NSString  *path = [[ NSSearchPathForDirectoriesInDomains ( NSDocumentDirectory , NSUserDomainMask ,  YES )  firstObject ]  stringByAppendingString :[ NSString stringWithFormat : @"/%@.png" , notificationCell . ticket . airline ]];
+               NSString  *path = [[ NSSearchPathForDirectoriesInDomains ( NSDocumentDirectory , NSUserDomainMask ,  YES )  firstObject ]  stringByAppendingString :[ NSString stringWithFormat : @"/%@.png" , notificationCell . ticket . airline ]];
             
-            if  (![[ NSFileManager   defaultManager]   fileExistsAtPath :path]) {
+               if  (![[ NSFileManager   defaultManager]   fileExistsAtPath :path]) {
                 UIImage  *logo =  notificationCell . airlineLogoView . image ;
                 NSData  *pngData =  UIImagePNGRepresentation (logo);
                 [pngData  writeToFile :path  atomically : YES ];
-            }
-            imageURL = [ NSURL   fileURLWithPath :path];
+               }
+
+               imageURL = [ NSURL   fileURLWithPath :path];
             
-        }
+           }
+
         Notification  notification =  NotificationMake ( [@"ticket_reminder" localize] , message, _datePicker.date,  imageURL );
         
-        [[ NotificationCenter   sharedInstance ]  sendNotification :notification];
-        
+        //отправляем напоминалку
+        [[ NotificationCenter   sharedInstance ]  sendNotification :notification ticketFlightNumber:notificationCell.ticket.flightNumber];
+
+        //сам билет автоматически добавим в избранное, если он еще не добавлен
+        if  (![[ CoreDataHelper   sharedInstance ]  isFavorite : notificationCell.ticket])
+            [[ CoreDataHelper   sharedInstance ]  addToFavorite:notificationCell.ticket]  ;
+
         UIAlertController  *alertController = [ UIAlertController   alertControllerWithTitle : [@"success" localize] message:[ NSString   stringWithFormat : @"%@ - %@" ,[@"notification_will_be_sent" localize],_datePicker.date] preferredStyle:( UIAlertControllerStyleAlert )];
 
         UIAlertAction  *closeAction = [ UIAlertAction   actionWithTitle : [@"close" localize] style: UIAlertActionStyleCancel  handler:^( UIAlertAction  *  _Nonnull  action) {
             
             //после отправки напоминалки возвращаемся на главное окно
             [self.navigationController popToRootViewControllerAnimated:YES];
+            
 
         }];
         
@@ -230,7 +286,10 @@ return  cell;
         
     }
     _datePicker . date  = [ NSDate   date ];
+
+    //обнуляем
     notificationCell  =  nil ;
+
     [ self . view   endEditing : YES ];
 }
 

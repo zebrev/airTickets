@@ -50,6 +50,7 @@
     
     UINavigationController *favoriteNavigationController = [[ UINavigationController  alloc ] initWithRootViewController :favoriteViewController];
     
+    
     [controllers  addObject :favoriteNavigationController];
     
     return controllers;
