@@ -124,7 +124,7 @@
 		5C723BBA2021FCB200138C8D /* Airport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Airport.m; sourceTree = "<group>"; };
 		5C723BBD2021FD6300138C8D /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		5C723BBE2021FD6300138C8D /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
-		5C723BC02021FFFE00138C8D /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
+		5C723BC02021FFFE00138C8D /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = data; path = "/code/Практика2017/разработка на objective-C/TicketSearch_Zebrev/TicketSearch_Zebrev/data"; sourceTree = "<absolute>"; };
 		5CC391AF206A61D20040BB3E /* TicketSearch_Zebrev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TicketSearch_Zebrev.entitlements; sourceTree = "<group>"; };
 		5CCB83682069B3A0009FA800 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5CCB83692069B3A0009FA800 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
