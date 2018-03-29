@@ -8,13 +8,9 @@
 
 #import "TicketTableViewCell.h"
 #import  <YYWebImage/YYWebImage.h>
+#import  "FavoriteTicket+CoreDataClass.h"
 
 @interface   TicketTableViewCell  ()
-
-@property  ( nonatomic ,  strong )  UIImageView  *airlineLogoView;
-@property  ( nonatomic ,  strong )  UILabel  *priceLabel;
-@property  ( nonatomic ,  strong )  UILabel  *placesLabel;
-@property  ( nonatomic ,  strong )  UILabel  *dateLabel;
 
 @end
 
@@ -38,7 +34,9 @@
             
             _priceLabel . font  = [ UIFont   systemFontOfSize : 24.0   weight : UIFontWeightBold ]; [ self . contentView   addSubview : _priceLabel ];
             
-            _airlineLogoView  = [[ UIImageView   alloc ]  initWithFrame : self . bounds ];  _airlineLogoView . contentMode  =  UIViewContentModeScaleAspectFit ; [ self . contentView   addSubview : _airlineLogoView ];
+            _airlineLogoView  = [[ UIImageView   alloc ]  initWithFrame : self . bounds ];
+        _airlineLogoView . contentMode  =  UIViewContentModeScaleAspectFit ;
+        [ self . contentView   addSubview : _airlineLogoView ];
             
             _placesLabel  = [[ UILabel   alloc ]  initWithFrame : self . bounds ];
             
@@ -80,6 +78,21 @@
     NSURL  *urlLogo = AirlineLogo(ticket. airline );
     
     [ _airlineLogoView yy_setImageWithURL :urlLogo options : YYWebImageOptionSetImageWithFadeAnimation ];
+}
+
+- (void)setFavoriteTicket:( FavoriteTicket  *)favoriteTicket {
+    _favoriteTicket  = favoriteTicket;
+    _priceLabel . text  = [ NSString  stringWithFormat : @"%lld руб." , favoriteTicket. price ];
+    
+    _placesLabel . text  = [ NSString   stringWithFormat : @"%@ - %@" , favoriteTicket. from , favoriteTicket. to ];
+    
+    NSDateFormatter  *dateFormatter = [[ NSDateFormatter   alloc ]  init ];
+    dateFormatter. dateFormat  =  @"dd MMMM yyyy hh:mm" ;
+    
+    _dateLabel . text  = [dateFormatter  stringFromDate :favoriteTicket. departure ];
+    NSURL  *urlLogo = AirlineLogo(favoriteTicket. airline );
+    
+    [ _airlineLogoView  yy_setImageWithURL :urlLogo options : YYWebImageOptionSetImageWithFadeAnimation ];
 }
 
 

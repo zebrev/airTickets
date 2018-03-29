@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 
-@interface TabBarControllerViewController : UITabBarController
+@interface TabBarController : UITabBarController
 
 @end

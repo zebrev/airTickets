@@ -1,0 +1,57 @@
+/* 
+  Localizable.strings
+  TicketSearch_Zebrev
+
+  Created by Rapax on 24.03.2018.
+  Copyright © 2018 Rapax. All rights reserved.
+*/
+
+// TabBarController
+"search_tab"  =  "Suche" ;
+"map_tab"  =  "Preisübersicht" ;
+"favorites_tab"  =  "Meine Favoriten" ;
+
+// MainViewController
+
+"main_from"  =  "Standort" ;
+"main_to"  =  "Wo" ;
+"main_search"  =  "Finden" ;
+
+// FirstViewController
+"about_app_header"  =  "ÜBER ANHANG" ;
+"tickets_header"  =  "Flugtickets" ;
+"map_price_header"  =  "Preisübersicht" ;
+"favorites_header"  =  "FAVORITEN" ;
+
+
+"about_app_describe"  =  "Anwendung für die Suche nach Flugtickets" ;
+"tickets_describe"  =  "Finde die günstigsten Flüge" ;
+"map_price_describe"  =  "Sehen Sie sich die Preisübersicht an" ;
+"favorites_describe"  =  "Speichern Sie ausgewählte Tickets in Favoriten" ;
+
+"next_button"  =  "WEITER" ;
+"done_button"  =  "BEREIT" ;
+
+"cities" = "Städte";
+"airplaces" = "Flughäfen";
+
+
+// TicketsViewController
+"tickets_title"  =  "Tickets" ;
+"add_to_favorite"  =  "Zu Favoriten hinzufügen" ;
+"remove_from_favorite"  =  "Aus den Favoriten entfernen" ;
+"remind_me"  =  "Erinnere mich daran" ;
+"ticket_reminder"  =  "Ticket Erinnerung" ;
+"notification_will_be_sent"  =  "Die Benachrichtigung wird gesendet" ;
+"success"  =  "Erfolgreich" ;
+
+// Alerts
+"error"  =  "Fehler" ;
+"opps!" = "Upss!";
+"tickets_not_found"  =  "In dieser Richtung werden keine Tickets gefunden" ;
+"close"  =  "Schließen" ;
+"not_set_place_arrival_or_departure"  =  "Es ist notwendig, den Abfahrtsort und den Ankunftsort anzugeben" ;
+"actions_with_tickets"  =  "Aktionen mit dem Ticket" ;
+"actions_with_tickets_describe"  =  "Was tun mit dem ausgewählten Ticket?";
+"not_determine_current_city"  =  "Die aktuelle Stadt konnte nicht ermittelt werden!" ;
+

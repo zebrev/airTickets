@@ -8,6 +8,13 @@
 
 #import "NSString+Localize.h"
 
-@implementation NSString_Localize
+@implementation NSString (Localize)
+
+- ( NSString  *)localize {
+    
+    //NSLog(@"%@",self);
+    return NSLocalizedString(self,"");
+    
+}
 
 @end

@@ -7,92 +7,232 @@
 //
 
 #import "TicketsViewController.h"
+#import  "CoreDataHelper.h"
+#import  "TicketTableViewCell.h"
+#import <Foundation/Foundation.h>
+#import "NotificationCenter.h"
+#import "NSString+Localize.h"
 
-@interface TicketsViewController ()
+#define TicketCellReuseIdentifier @"TicketCellIdentifier"
+
+@interface   TicketsViewController  ()
+
+@property  ( nonatomic ,  strong )  NSArray  *tickets;
+@property  ( nonatomic ,  strong )  UIDatePicker  *datePicker;
+@property  ( nonatomic ,  strong )  UITextField  *dateTextField;
+
+@end
+
+@implementation TicketsViewController {
+
+    BOOL  isFavorites;
+    TicketTableViewCell  *notificationCell;
+}
+
+- ( instancetype )initFavoriteTicketsController {
+    self  = [ super   init ];
+    
+    if  ( self ) {
+        isFavorites  =  YES ;
+        self . tickets  = [ NSArray   new ];
+        self . title  =  [@"favorites_header" localize];
+        self . tableView . separatorStyle  =  UITableViewCellSeparatorStyleNone ;
+        [ self . tableView  registerClass :[ TicketTableViewCell
+                                            class ] forCellReuseIdentifier :TicketCellReuseIdentifier];
+    }
+    return   self ;
+}
+
+
+- ( instancetype )initWithTickets:( NSArray  *)tickets {
+    self  = [ super   init ];
+    if  ( self )
+    {
+        _tickets  = tickets;
+        self . title  =  [@"tickets_title" localize] ;
+        self . tableView . separatorStyle  =  UITableViewCellSeparatorStyleNone ;
+        [ self . tableView  registerClass :[ TicketTableViewCell  class ] forCellReuseIdentifier :TicketCellReuseIdentifier];
+        
+        _datePicker  = [[ UIDatePicker   alloc ]  init ];
+        _datePicker . datePickerMode  =  UIDatePickerModeDateAndTime ;
+        _datePicker . minimumDate  = [ NSDate   date ];
+        _dateTextField  = [[ UITextField   alloc ]  initWithFrame : self . view . bounds ];
+        _dateTextField . hidden  =  YES ;
+        _dateTextField . inputView  =  _datePicker ;
+        
+        UIToolbar  *keyboardToolbar = [[ UIToolbar   alloc ]  init ];
+        [keyboardToolbar  sizeToFit ];
+        UIBarButtonItem  *flexBarButton = [[ UIBarButtonItem   alloc ]
+                                           initWithBarButtonSystemItem : UIBarButtonSystemItemFlexibleSpace   target : nil   action : nil ];
+        UIBarButtonItem  *doneBarButton = [[ UIBarButtonItem   alloc ] initWithBarButtonSystemItem : UIBarButtonSystemItemDone   target : self action : @selector (doneButtonDidTap:)];
+        keyboardToolbar. items  =  @[ flexBarButton, doneBarButton ] ;
+        _dateTextField . inputAccessoryView  = keyboardToolbar;
+        [ self . view   addSubview : _dateTextField ];
+    }
+   
+    return   self ;
+}
+
+- ( void )viewDidAppear:( BOOL )animated {
+    [ super   viewDidAppear :animated];
+    
+    if  ( isFavorites ) {
+        self . navigationController . navigationBar . prefersLargeTitles  =  YES ;
+        _tickets  = [[ CoreDataHelper  sharedInstance ]  favorites ];
+        [ self . tableView   reloadData ];
+    }
+    
+}
+
+
+#pragma mark - UITableViewDataSource & UITableViewDelegate
+
+- ( NSInteger )tableView:( UITableView  *)tableView numberOfRowsInSection:( NSInteger )section {
+    return   _tickets . count ;
+}
+
+- ( UITableViewCell *)tableView:( UITableView *)tableView cellForRowAtIndexPath:( NSIndexPath *)indexPath {
+    
+    TicketTableViewCell *cell = [tableView  dequeueReusableCellWithIdentifier :TicketCellReuseIdentifier forIndexPath :indexPath];
+    
+    if  ( isFavorites ) {
+        cell.favoriteTicket  = [ _tickets   objectAtIndex:  indexPath. row ];
+    }  else  {
+        cell. ticket  = [ _tickets   objectAtIndex :indexPath.row ];
+        
+    }
+    
+    //cell. selectionStyle  =  UITableViewCellSelectionStyleNone ;
+    //cell. ticket  = [ _tickets   objectAtIndex :indexPath.row ];
+    
+    //просто обновляем фон ячейки зеленым цветом с эффектом анимации (надо скроллить для наглядности)
+    cell.backgroundColor = [UIColor clearColor];
+    //UIViewAnimationOptionAllowUserInteraction - это чтобы не блокировался скроллинг
+    [UIView animateWithDuration:5.0 delay:0.2 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+        cell.backgroundColor = [UIColor greenColor];
+    } completion:^(BOOL finished)
+     {
+         //NSLog(@"Color transformation Completed");
+     }];
+
+    
+    
+return  cell;
+    
+}
+
+- ( CGFloat )tableView:( UITableView  *)tableView heightForRowAtIndexPath:( NSIndexPath  *)indexPath {
+    
+    return   140.0 ;
+}
+
+
+- ( void )tableView:( UITableView  *)tableView didSelectRowAtIndexPath:( NSIndexPath  *)indexPath {
+    
+   
+    if  ( isFavorites )  return ;
+    
+    UIAlertController *alertController = [ UIAlertController  alertControllerWithTitle :[@"actions_with_tickets" localize] message: [@"actions_with_tickets_describe" localize] preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    //NSLog(@"3! %d",indexPath.row);
+    
+    UIAlertAction  *favoriteAction;
+    
+    if  ([[ CoreDataHelper   sharedInstance ]  isFavorite : [ _tickets   objectAtIndex :indexPath.row ]]) {
+        
+        favoriteAction = [UIAlertAction  actionWithTitle :[@"remove_from_favorite" localize] style: UIAlertActionStyleDestructive  handler:^( UIAlertAction  *  _Nonnull  action) {
+            
+            [[ CoreDataHelper   sharedInstance ]  removeFromFavorite:  [ _tickets   objectAtIndex :indexPath.row ]];
+            
+        }];
+    }  else  {
+
+       
+        favoriteAction = [UIAlertAction  actionWithTitle :[@"add_to_favorite" localize] style: UIAlertActionStyleDefault  handler:^( UIAlertAction  *  _Nonnull  action) {
+            
+            [[ CoreDataHelper   sharedInstance ]  addToFavorite:  [ _tickets   objectAtIndex :indexPath. row ]];
+
+            TicketsViewController  *ticketsViewController = [[ TicketsViewController   alloc ]
+                                                             initFavoriteTicketsController];
+
+            //Анимация для перехода на вкладку "Избранное"
+            CATransition *transition = [CATransition animation];
+            transition.duration = 1.35;
+            transition.timingFunction = [CAMediaTimingFunction      functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+            transition.type = kCATransitionMoveIn;
+            transition.subtype =kCATransitionFromRight;
+            
+            [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
+            [[self navigationController] showViewController:ticketsViewController sender :self];
+
+            
+        }];
+    }
+    
+    
+    UIAlertAction  *notificationAction = [ UIAlertAction   actionWithTitle : [@"remind_me" localize] style:( UIAlertActionStyleDefault ) handler:^( UIAlertAction  *  _Nonnull  action) {
+        
+        notificationCell  = [tableView  cellForRowAtIndexPath :indexPath];
+        
+        [ _dateTextField   becomeFirstResponder ];
+        
+    }];
+
+
+    UIAlertAction *cancelAction = [UIAlertAction  actionWithTitle : [@"close" localize] style: UIAlertActionStyleCancel handler: nil ];
+    
+    [alertController  addAction :favoriteAction];
+    [alertController  addAction :cancelAction];
+      [alertController  addAction :notificationAction];
+    
+    [ self   presentViewController :alertController  animated : YES   completion : nil ];
+}
+
+
+- ( void )doneButtonDidTap:( UIBarButtonItem  *)sender {
+    
+    if  ( _datePicker . date  &&  notificationCell ) {
+        
+        NSString  *message = [ NSString   stringWithFormat : @"%@ - %@ за %@ руб." ,
+                              notificationCell . ticket .from,  notificationCell . ticket .to,  notificationCell .ticket .price];
+        NSURL  *imageURL;
+        
+           if  ( notificationCell.airlineLogoView . image ) {
+            
+            NSString  *path = [[ NSSearchPathForDirectoriesInDomains ( NSDocumentDirectory , NSUserDomainMask ,  YES )  firstObject ]  stringByAppendingString :[ NSString stringWithFormat : @"/%@.png" , notificationCell . ticket . airline ]];
+            
+            if  (![[ NSFileManager   defaultManager]   fileExistsAtPath :path]) {
+                UIImage  *logo =  notificationCell . airlineLogoView . image ;
+                NSData  *pngData =  UIImagePNGRepresentation (logo);
+                [pngData  writeToFile :path  atomically : YES ];
+            }
+            imageURL = [ NSURL   fileURLWithPath :path];
+            
+        }
+        Notification  notification =  NotificationMake ( [@"ticket_reminder" localize] , message, _datePicker.date,  imageURL );
+        
+        [[ NotificationCenter   sharedInstance ]  sendNotification :notification];
+        
+        UIAlertController  *alertController = [ UIAlertController   alertControllerWithTitle : [@"success" localize] message:[ NSString   stringWithFormat : @"%@ - %@" ,[@"notification_will_be_sent" localize],_datePicker.date] preferredStyle:( UIAlertControllerStyleAlert )];
+
+        UIAlertAction  *closeAction = [ UIAlertAction   actionWithTitle : [@"close" localize] style: UIAlertActionStyleCancel  handler:^( UIAlertAction  *  _Nonnull  action) {
+            
+            //после отправки напоминалки возвращаемся на главное окно
+            [self.navigationController popToRootViewControllerAnimated:YES];
+
+        }];
+        
+        [alertController  addAction :closeAction];
+        
+        [ self   presentViewController :alertController  animated : YES   completion : nil ];
+        
+        
+        
+    }
+    _datePicker . date  = [ NSDate   date ];
+    notificationCell  =  nil ;
+    [ self . view   endEditing : YES ];
+}
 
 @end
 
-@implementation TicketsViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
-}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-@end

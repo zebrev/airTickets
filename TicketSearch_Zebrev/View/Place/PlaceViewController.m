@@ -9,6 +9,7 @@
 #import "PlaceViewController.h"
 #import "DataManager.h"
 #import "CustomTableViewCell.h"
+#import "NSString+Localize.h"
 
 #define ReuseIdentifier @"CellIdentifier"
 
@@ -66,9 +67,9 @@
        _tableView . tableHeaderView  =  _searchController . searchBar ;
     }
     
-    [self.view addSubview:_tableView]
-    ;
-    _segmentedControl = [[ UISegmentedControl alloc] initWithItems:@[@"Города",@"Аэропорты"]];
+    [self.view addSubview:_tableView];
+    
+    _segmentedControl = [[ UISegmentedControl alloc] initWithItems:@[[@"cities" localize],[@"airplaces" localize]]];
     [_segmentedControl addTarget: self action: @selector( changeSource) forControlEvents: UIControlEventValueChanged] ;
     _segmentedControl.tintColor = [ UIColor blackColor];
     
@@ -78,10 +79,10 @@
     
     
     if (_placeType == PlaceTypeDeparture) {
-        self. title =  @"Откуда";
+        self. title =  [@"main_from" localize];
     }
     else {
-        self. title =  @"Куда";
+        self. title =  [@"main_to" localize];
     }
     
 }

@@ -8,8 +8,20 @@
 
 #import "MainViewController.h"
 #import "DataManager.h"
+#import "PlaceViewController.h"
+#import "APIManager.h"
+#import "TicketsViewController.h"
+#import "ProgressView.h"
+#import "FirstViewController.h"
+#import "NSString+Localize.h"
 
-@interface MainViewController ()
+@interface MainViewController () <PlaceViewControllerDelegate >
+
+@property (nonatomic, strong)  UIView  *placeContainerView;
+@property (nonatomic,strong) UIButton * departureButton;
+@property (nonatomic,strong) UIButton * arrivalButton;
+@property (nonatomic) SearchRequest searchRequest;
+@property  ( nonatomic ,  strong )  UIButton  *searchButton;
 
 @end
 
@@ -20,69 +32,190 @@ UIButton * button;
 - (  void) viewDidLoad {
     [  super  viewDidLoad];
     
-    
-    CGRect frame  =  CGRectMake( [ UIScreen  mainScreen].bounds.size.width/ 2 -   100.0,  [UIScreen mainScreen].bounds.size.height/ 2 -   25.0,200.0,50.0) ;
-    button  = [  UIButton  buttonWithType:  UIButtonTypeSystem] ;
-    
-    [button setTitle:@"Загрузить данные" forState:UIControlStateNormal]   ;
-    button.backgroundColor  = [UIColor  blueColor];
-    button.tintColor  = [UIColor  whiteColor];
-    button.frame  = frame;
-    [button addTarget:self action:@selector(loadDataStart:) forControlEvents: UIControlEventTouchUpInside] ;
-    [self.view  addSubview:button];
-
-    self.view.backgroundColor  = [  UIColor  whiteColor];
-
-    
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadDataComplete) name:kDataManagerLoadDataDidComplete object:nil];
-
-}
-
-
-- (  void)loadDataStart:( UIButton * )sender
-{
     [ [DataManager  sharedInstance] loadData];
-}
-
-/*
-//  Метод, к оторый  будет  вызван  при  нажатии  на к нопку
-- (  void) loadData:( UIButton * )sender
-{
-
-
-}
-*/
-- (  void) dealloc
-{
-    [[ NSNotificationCenter  defaultCenter] removeObserver:self  name:kDataManagerLoadDataDidComplete object:nil] ;
-}
-
-- (  void) loadDataComplete
-{
-    self.view.backgroundColor  = [UIColor yellowColor];
-    [button removeFromSuperview];
-    button = nil;
     
-   
-    //Теперь перейдем на другой контроллер
-    
-    self. view.backgroundColor  = [  UIColor  whiteColor];
-    CGRect redViewFrame  =  CGRectMake(  40.0,   40.0,  [  UIScreen  mainScreen].bounds.size.width -   80.0,  [ UIScreen  mainScreen].bounds.size.height -   80.0) ;
-    UIView * redView  = [ [ UIView  alloc] initWithFrame: redViewFrame];
-    redView.backgroundColor  = [  UIColor redColor];
-    [ self. view  addSubview: redView];
-    
-    CGRect labelFrame  =  CGRectMake(  10.0,   10.0,  [  UIScreen  mainScreen].bounds.size.width -   80.0,  [ UIScreen  mainScreen].bounds.size.height -   80.0) ;
-    UILabel * label  = [ [ UILabel  alloc] initWithFrame: labelFrame];
-    label.font  = [  UIFont  systemFontOfSize: 12.0  weight: UIFontWeightBold] ;
-    label.textColor  = [  UIColor  yellowColor];
-    label.textAlignment  =  NSTextAlignmentCenter;
-    label.text  =  @"Данные были загружены";
-    [ redView  addSubview: label];
+    self. view.backgroundColor = [ UIColor whiteColor];
+    self. navigationController.navigationBar.prefersLargeTitles =  YES;
+    self. title =  [@"search_tab" localize];
 
+    
+    _placeContainerView = [[UIView  alloc ]  initWithFrame : CGRectMake ( 20.0 ,  140.0 , [ UIScreen mainScreen ]. bounds . size . width - 40.0,   170.0 )];
+    _placeContainerView . backgroundColor  = [ UIColor   whiteColor ];
+    _placeContainerView . layer .shadowColor = [[[ UIColor  blackColor ]  colorWithAlphaComponent : 0.1 ]
+                                                CGColor ];
+    _placeContainerView . layer . shadowOffset  =  CGSizeZero ;
+    _placeContainerView . layer . shadowRadius  =  20.0 ;
+    _placeContainerView . layer . shadowOpacity  =  1.0 ;
+    _placeContainerView . layer . cornerRadius  =  6.0 ;
+    
+    [ self . view   addSubview : _placeContainerView ];
+    
+    _departureButton = [ UIButton buttonWithType:UIButtonTypeSystem] ;
+    [_departureButton setTitle: [@"main_from" localize] forState: UIControlStateNormal] ;
+    _departureButton.tintColor = [ UIColor blackColor];
+    //_departureButton.frame =  CGRectMake(  30.0,  140.0, [ UIScreen mainScreen].bounds.size.width -  60.0, 60.0) ;
+     _departureButton . frame  =  CGRectMake ( 30.0 ,  150.0 ,  _placeContainerView . frame . size . width  -  20.0 ,  60.0 );
+    
+     _departureButton . layer . cornerRadius  =  4.0 ;
+    
+    _departureButton.backgroundColor = [[ UIColor lightGrayColor] colorWithAlphaComponent: 0.1] ;
+    [_departureButton addTarget: self action: @selector( placeButtonDidTap:) forControlEvents: UIControlEventTouchUpInside] ;
+    [ self. view addSubview:_departureButton];
+    
+    _arrivalButton = [ UIButton buttonWithType: UIButtonTypeSystem] ;
+    [_arrivalButton setTitle: [@"main_to" localize] forState: UIControlStateNormal] ;
+    _arrivalButton.tintColor = [ UIColor blackColor];
+    //_arrivalButton.frame =  CGRectMake(  30.0,  CGRectGetMaxY( _departureButton.frame) + 20.0,                                       [ UIScreen mainScreen].bounds.size.width -  60.0,  60.0) ;
+    
+    _arrivalButton . frame =  CGRectMake ( 30.0 ,  CGRectGetMaxY ( _departureButton . frame ) +  10.0 , _placeContainerView . frame . size . width  -  20.0,   60.0 );
+    
+     _arrivalButton . layer . cornerRadius  =  4.0 ;
+    
+    _arrivalButton.backgroundColor = [[ UIColor lightGrayColor] colorWithAlphaComponent: 0.1] ;
+    [_arrivalButton addTarget: self action: @selector( placeButtonDidTap:) forControlEvents: UIControlEventTouchUpInside] ;
+    [ self. view addSubview:_arrivalButton];
+
+
+    
+    
+    _searchButton  = [ UIButton   buttonWithType : UIButtonTypeSystem ];
+    [ _searchButton   setTitle : [@"main_search" localize]   forState : UIControlStateNormal ];
+    _searchButton . tintColor  = [ UIColor  whiteColor ];
+    _searchButton . frame =  CGRectMake ( 30.0 ,  CGRectGetMaxY ( _placeContainerView . frame ) +  30 , [UIScreen mainScreen   ] . bounds.size.width - 60.0,60.0) ;
+    
+    _searchButton . backgroundColor  = [UIColor   blackColor ];
+    _searchButton . layer . cornerRadius  =  8.0 ;
+    _searchButton . titleLabel . font  = [ UIFont   systemFontOfSize : 20.0   weight : UIFontWeightBold ];
+    [ self . view   addSubview : _searchButton ];
+    
+    [[ NSNotificationCenter  defaultCenter ]  addObserver :self  selector :@selector(dataLoadedSuccessfully) name :kDataManagerLoadDataDidComplete  object :nil];
+    
+    
+[ _searchButton  addTarget : self  action : @selector (searchButtonDidTap:) forControlEvents : UIControlEventTouchUpInside ];
+    
 }
 
+
+- (void)searchButtonDidTap:( UIButton  *)sender {
+    
+    if  ( _searchRequest . origin  &&  _searchRequest.   destionation ) {
+        [[ ProgressView   sharedInstance ]  show :^{
+            
+            [[ APIManager   sharedInstance ] ticketsWithRequest : _searchRequest   withCompletion :^( NSArray
+                                                                                                       *tickets) {
+                [[ ProgressView   sharedInstance ]  dismiss :^{
+                    if (tickets. count  > 0) {
+                        TicketsViewController  *ticketsViewController = [[ TicketsViewController   alloc ]
+                                                                         initWithTickets :tickets];
+                        [self. navigationController   showViewController :ticketsViewController  sender :self];
+                    } else {
+                                                
+                        UIAlertController  *alertController = [ UIAlertController   alertControllerWithTitle : [@"opps!" localize] message :[@"tickets_not_found" localize]   preferredStyle:  UIAlertControllerStyleAlert ];
+                        [alertController  addAction :[UIAlertAction   actionWithTitle : [@"close" localize] style:( UIAlertActionStyleDefault ) handler:nil]];
+                        
+                        [self  presentViewController :alertController  animated :YES  completion :nil]; }
+                
+                }];
+                
+            }];
+        }];
+    } else {
+        UIAlertController  *alertController = [ UIAlertController   alertControllerWithTitle : [@"error" localize] message : [@"not_set_place_arrival_or_departure" localize] preferredStyle:UIAlertControllerStyleAlert];
+        [alertController  addAction :[UIAlertAction   actionWithTitle : [@"close" localize] style:( UIAlertActionStyleDefault ) handler: nil ]];
+        
+        [ self   presentViewController :alertController  animated : YES   completion : nil ];
+        
+    }
+}
+
+
+- (void)dealloc {
+    [[ NSNotificationCenter  defaultCenter ]  removeObserver:   self  name :kDataManagerLoadDataDidComplete
+                                                     object : nil ];
+    
+}
+
+
+- ( void)dataLoadedSuccessfully {
+    [[ APIManager   sharedInstance ] cityForCurrentIP :^( City  *city) {
+
+    [ self  setPlace :city  withDataType : DataSourceTypeCity  andPlaceType : PlaceTypeDeparture forButton : _departureButton ];
+    }];
+}
+     
+
+- ( void) placeButtonDidTap:( UIButton *)sender
+{
+    PlaceViewController *placeViewController;
+    if ([sender isEqual:_departureButton]) {
+    placeViewController = [[PlaceViewController alloc] initWithType: PlaceTypeDeparture];
+        
+    }
+    else   {
+        placeViewController = [[PlaceViewController alloc] initWithType: PlaceTypeArrival];
+        
+    }
+    placeViewController.delegate =  self;
+    [ self. navigationController pushViewController: placeViewController animated: YES] ;
+    
+}
+
+#pragma mark - PlaceViewControllerDelegate
+- ( void) selectPlace:(id) place withType:(PlaceType)placeType andDataType:(DataSourceType)dataType {
+    [ self setPlace:place withDataType:dataType andPlaceType:placeType forButton:
+     (placeType == PlaceTypeDeparture) ? _departureButton : _arrivalButton ];
+    
+}
+
+- ( void) setPlace:(id) place withDataType:(DataSourceType)dataType andPlaceType:(PlaceType)placeType forButton:
+    ( UIButton *)button
+{
+    NSString *title;
+    NSString *iata;
+    if (dataType == DataSourceTypeCity) {
+        City *city = (City *)place;
+        title = city.name;
+        iata = city.code;
+    }
+    else
+        if (dataType == DataSourceTypeAirport) {
+            Airport *airport = (Airport *)place;
+            title = airport.name;
+            iata = airport.cityCode;
+    }
+    
+    if  (placeType == PlaceTypeDeparture) {
+        _searchRequest.origin = iata;        
+    }
+    else   {
+            _searchRequest.destionation = iata;
+    }
+
+    [button setTitle: title forState:  UIControlStateNormal];
+}
+
+
+- ( void )viewDidAppear:( BOOL )animated {
+    [ super   viewDidAppear :animated];
+    [ self   presentFirstViewControllerIfNeeded ];
+    
+}
+
+- ( void )presentFirstViewControllerIfNeeded {
+    
+    //если закомментарить - будет при каждом запуске заставка
+    BOOL  isFirstStart = false;
+     
+    isFirstStart = [[ NSUserDefaults   standardUserDefaults ]  boolForKey :@  "first_start" ];
+    if  (!isFirstStart) {
+        
+        FirstViewController  *firstViewController = [[ FirstViewController   alloc ] initWithTransitionStyle : UIPageViewControllerTransitionStyleScroll navigationOrientation : UIPageViewControllerNavigationOrientationHorizontal   options : nil ];
+        
+        [ self   presentViewController :firstViewController  animated : YES   completion : nil ];
+        
+    }
+    
+}
 
 
 @end

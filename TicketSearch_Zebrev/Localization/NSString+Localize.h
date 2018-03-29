@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString_Localize : NSString
+@interface NSString (Localize)
+
+@property  ( nonatomic ,  strong , readonly )  NSString  *localize;
 
 @end

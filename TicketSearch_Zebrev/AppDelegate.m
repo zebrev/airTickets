@@ -7,6 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "MainViewController.h"
+#import "MapViewController.h"
+#import "TabBarController.h"
+#import "NotificationCenter.h"
+#import "TicketsViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +22,40 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    
+    CGRect windowFrame  = [UIScreen mainScreen].bounds;
+    self.window  = [[UIWindow alloc] initWithFrame: windowFrame];
+    
+    TabBarController  *tabBarController = [[ TabBarController   alloc ]  init ];
+    self . window . rootViewController  = tabBarController;
+
+    [self.window makeKeyAndVisible];
+    
+    //запрос на получение доступа для отправления уведомлений, в момент первого запуска приложения
+    [[ NotificationCenter   sharedInstance ]  registerService ];
+
+    /*
+     сюда мы не попадем на симуляторе
+    //Если есть локальные уведомления - обработаем их
+    UILocalNotification *localNotif = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    
+    if (localNotif) {
+        
+        NSDate *currentDate = [NSDate date];
+        NSLog(@"%@", currentDate);
+        
+        NSString *itemName = [localNotif.userInfo objectForKey:@"Notification"];
+        
+        NSLog(@"itemName = %@,fireDate = %@",itemName,localNotif.fireDate);
+        //[viewController displayItem:itemName];  // custom method
+        
+        application.applicationIconBadgeNumber = localNotif.applicationIconBadgeNumber-1;
+        
+    }
+     */
+    
+    
     return YES;
 }
 
@@ -24,6 +63,7 @@
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+
 }
 
 

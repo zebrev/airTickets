@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIPageViewController
+@interface FirstViewController : UIPageViewController < UIPageViewControllerDelegate ,
+UIPageViewControllerDataSource >
+
 
 @end

@@ -7,14 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C098711202522E5002187F9 /* PlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C098710202522E5002187F9 /* PlaceViewController.m */; };
+		5C098716202531F5002187F9 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C098715202531F5002187F9 /* CustomTableViewCell.m */; };
+		5C1AD966205D720C0047DCA7 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AD965205D720C0047DCA7 /* LocationService.m */; };
+		5C1AD969205D75440047DCA7 /* MapPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AD968205D75440047DCA7 /* MapPrice.m */; };
+		5C1AD96C205D76F40047DCA7 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AD96B205D76F40047DCA7 /* MapViewController.m */; };
+		5C1AD96F206579B70047DCA7 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AD96E206579B70047DCA7 /* TabBarController.m */; };
+		5C1AD972206584720047DCA7 /* FavoriteTicket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AD970206584720047DCA7 /* FavoriteTicket.xcdatamodeld */; };
+		5C1AD97D206608090047DCA7 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AD97C206608090047DCA7 /* CoreDataHelper.m */; };
+		5C1AD982206614160047DCA7 /* FavoriteTicket+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AD97E206614150047DCA7 /* FavoriteTicket+CoreDataProperties.m */; };
+		5C1AD983206614160047DCA7 /* FavoriteTicket+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AD980206614160047DCA7 /* FavoriteTicket+CoreDataClass.m */; };
+		5C1AD986206685A90047DCA7 /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AD985206685A90047DCA7 /* ProgressView.m */; };
+		5C1AD98A2066A1C20047DCA7 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AD9892066A1C20047DCA7 /* ContentViewController.m */; };
+		5C1AD98D2066A3620047DCA7 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AD98C2066A3620047DCA7 /* FirstViewController.m */; };
+		5C1AD9912066B2010047DCA7 /* NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AD9902066B2010047DCA7 /* NotificationCenter.m */; };
+		5C1AD9952066B82F0047DCA7 /* NSString+Localize.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AD9942066B82F0047DCA7 /* NSString+Localize.m */; };
+		5C1AD9982066B96B0047DCA7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C1AD99A2066B96B0047DCA7 /* Localizable.strings */; };
+		5C1AD9A02066BB6E0047DCA7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C1AD9A22066BB6E0047DCA7 /* InfoPlist.strings */; };
+		5C1C0E6A202C80BF00955A6D /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1C0E69202C80BF00955A6D /* APIManager.m */; };
 		5C723B822021F8F200138C8D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C723B812021F8F200138C8D /* AppDelegate.m */; };
-		5C723B852021F8F200138C8D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C723B842021F8F200138C8D /* ViewController.m */; };
-		5C723B882021F8F200138C8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C723B862021F8F200138C8D /* Main.storyboard */; };
+		5C723B852021F8F200138C8D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C723B842021F8F200138C8D /* MainViewController.m */; };
 		5C723B8A2021F8F200138C8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C723B892021F8F200138C8D /* Assets.xcassets */; };
-		5C723B8D2021F8F200138C8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C723B8B2021F8F200138C8D /* LaunchScreen.storyboard */; };
 		5C723B902021F8F200138C8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C723B8F2021F8F200138C8D /* main.m */; };
 		5C723B9A2021F8F200138C8D /* TicketSearch_ZebrevTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C723B992021F8F200138C8D /* TicketSearch_ZebrevTests.m */; };
 		5C723BA52021F8F300138C8D /* TicketSearch_ZebrevUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C723BA42021F8F300138C8D /* TicketSearch_ZebrevUITests.m */; };
+		5C723BB52021FB4100138C8D /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C723BB42021FB4100138C8D /* Country.m */; };
+		5C723BB82021FC1200138C8D /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C723BB72021FC1200138C8D /* City.m */; };
+		5C723BBB2021FCB200138C8D /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C723BBA2021FCB200138C8D /* Airport.m */; };
+		5C723BBF2021FD6300138C8D /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C723BBE2021FD6300138C8D /* DataManager.m */; };
+		5C723BC12021FFFE00138C8D /* data in Resources */ = {isa = PBXBuildFile; fileRef = 5C723BC02021FFFE00138C8D /* data */; };
+		5CD1452B204386EA00FD9DCA /* Ticket.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD1452A204386EA00FD9DCA /* Ticket.m */; };
+		5CD1452F20438EEA00FD9DCA /* TicketTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD1452E20438EEA00FD9DCA /* TicketTableViewCell.m */; };
+		5CD14532204390BC00FD9DCA /* TicketsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD14531204390BC00FD9DCA /* TicketsViewController.m */; };
+		6D1ABB588A6523FB09069982 /* libPods-TicketSearch_ZebrevTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C035BBFEC95B2C82CB2833F /* libPods-TicketSearch_ZebrevTests.a */; };
+		D70590F9C7664228BA684ED8 /* libPods-TicketSearch_ZebrevUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A39BE1E9ECE2794ABCA1497 /* libPods-TicketSearch_ZebrevUITests.a */; };
+		D9100FD99CA246DFB17B70CE /* libPods-TicketSearch_Zebrev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B7E09F1E475B44B7CDE0DCE /* libPods-TicketSearch_Zebrev.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,14 +62,52 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		251501FAA684E970F241496F /* Pods-TicketSearch_Zebrev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketSearch_Zebrev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TicketSearch_Zebrev/Pods-TicketSearch_Zebrev.debug.xcconfig"; sourceTree = "<group>"; };
+		2C035BBFEC95B2C82CB2833F /* libPods-TicketSearch_ZebrevTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TicketSearch_ZebrevTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		309C5E2EA9A41F7BF85725AD /* Pods-TicketSearch_Zebrev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketSearch_Zebrev.release.xcconfig"; path = "Pods/Target Support Files/Pods-TicketSearch_Zebrev/Pods-TicketSearch_Zebrev.release.xcconfig"; sourceTree = "<group>"; };
+		4A39BE1E9ECE2794ABCA1497 /* libPods-TicketSearch_ZebrevUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TicketSearch_ZebrevUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BC6D717F28FBF2517CF98E3 /* Pods-TicketSearch_ZebrevUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketSearch_ZebrevUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TicketSearch_ZebrevUITests/Pods-TicketSearch_ZebrevUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5C09870F202522E5002187F9 /* PlaceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceViewController.h; sourceTree = "<group>"; };
+		5C098710202522E5002187F9 /* PlaceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceViewController.m; sourceTree = "<group>"; };
+		5C098714202531F5002187F9 /* CustomTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		5C098715202531F5002187F9 /* CustomTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
+		5C1AD964205D720C0047DCA7 /* LocationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationService.h; sourceTree = "<group>"; };
+		5C1AD965205D720C0047DCA7 /* LocationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationService.m; sourceTree = "<group>"; };
+		5C1AD967205D75440047DCA7 /* MapPrice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapPrice.h; sourceTree = "<group>"; };
+		5C1AD968205D75440047DCA7 /* MapPrice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapPrice.m; sourceTree = "<group>"; };
+		5C1AD96A205D76F40047DCA7 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		5C1AD96B205D76F40047DCA7 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		5C1AD96D206579B70047DCA7 /* TabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		5C1AD96E206579B70047DCA7 /* TabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		5C1AD971206584720047DCA7 /* FavoriteTicket.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteTicket.xcdatamodel; sourceTree = "<group>"; };
+		5C1AD97B206608090047DCA7 /* CoreDataHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
+		5C1AD97C206608090047DCA7 /* CoreDataHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
+		5C1AD97E206614150047DCA7 /* FavoriteTicket+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "FavoriteTicket+CoreDataProperties.m"; path = "/code/Практика2017/разработка на objective-C/TicketSearch_Zebrev/TicketSearch_Zebrev/View/Ticket/FavoriteTicket+CoreDataProperties.m"; sourceTree = "<absolute>"; };
+		5C1AD97F206614150047DCA7 /* FavoriteTicket+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "FavoriteTicket+CoreDataClass.h"; path = "/code/Практика2017/разработка на objective-C/TicketSearch_Zebrev/TicketSearch_Zebrev/View/Ticket/FavoriteTicket+CoreDataClass.h"; sourceTree = "<absolute>"; };
+		5C1AD980206614160047DCA7 /* FavoriteTicket+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "FavoriteTicket+CoreDataClass.m"; path = "/code/Практика2017/разработка на objective-C/TicketSearch_Zebrev/TicketSearch_Zebrev/View/Ticket/FavoriteTicket+CoreDataClass.m"; sourceTree = "<absolute>"; };
+		5C1AD981206614160047DCA7 /* FavoriteTicket+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "FavoriteTicket+CoreDataProperties.h"; path = "/code/Практика2017/разработка на objective-C/TicketSearch_Zebrev/TicketSearch_Zebrev/View/Ticket/FavoriteTicket+CoreDataProperties.h"; sourceTree = "<absolute>"; };
+		5C1AD984206685A90047DCA7 /* ProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
+		5C1AD985206685A90047DCA7 /* ProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgressView.m; sourceTree = "<group>"; };
+		5C1AD9882066A1C20047DCA7 /* ContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentViewController.h; sourceTree = "<group>"; };
+		5C1AD9892066A1C20047DCA7 /* ContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
+		5C1AD98B2066A3620047DCA7 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		5C1AD98C2066A3620047DCA7 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		5C1AD98F2066B2010047DCA7 /* NotificationCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationCenter.h; sourceTree = "<group>"; };
+		5C1AD9902066B2010047DCA7 /* NotificationCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationCenter.m; sourceTree = "<group>"; };
+		5C1AD9932066B82F0047DCA7 /* NSString+Localize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Localize.h"; sourceTree = "<group>"; };
+		5C1AD9942066B82F0047DCA7 /* NSString+Localize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Localize.m"; sourceTree = "<group>"; };
+		5C1AD99C2066B9AE0047DCA7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5C1AD99D2066B9D40047DCA7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5C1AD9A12066BB6E0047DCA7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5C1AD9A32066BB6F0047DCA7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5C1C0E68202C80BF00955A6D /* APIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
+		5C1C0E69202C80BF00955A6D /* APIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
 		5C723B7D2021F8F200138C8D /* TicketSearch_Zebrev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicketSearch_Zebrev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C723B802021F8F200138C8D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5C723B812021F8F200138C8D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5C723B832021F8F200138C8D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		5C723B842021F8F200138C8D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		5C723B872021F8F200138C8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5C723B832021F8F200138C8D /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		5C723B842021F8F200138C8D /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		5C723B892021F8F200138C8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5C723B8C2021F8F200138C8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C723B8E2021F8F200138C8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C723B8F2021F8F200138C8D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5C723B952021F8F200138C8D /* TicketSearch_ZebrevTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicketSearch_ZebrevTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +116,28 @@
 		5C723BA02021F8F300138C8D /* TicketSearch_ZebrevUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicketSearch_ZebrevUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C723BA42021F8F300138C8D /* TicketSearch_ZebrevUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicketSearch_ZebrevUITests.m; sourceTree = "<group>"; };
 		5C723BA62021F8F300138C8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C723BB32021FB4100138C8D /* Country.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Country.h; sourceTree = "<group>"; };
+		5C723BB42021FB4100138C8D /* Country.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Country.m; sourceTree = "<group>"; };
+		5C723BB62021FC1200138C8D /* City.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
+		5C723BB72021FC1200138C8D /* City.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
+		5C723BB92021FCB200138C8D /* Airport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Airport.h; sourceTree = "<group>"; };
+		5C723BBA2021FCB200138C8D /* Airport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Airport.m; sourceTree = "<group>"; };
+		5C723BBD2021FD6300138C8D /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		5C723BBE2021FD6300138C8D /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		5C723BC02021FFFE00138C8D /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
+		5CC391AF206A61D20040BB3E /* TicketSearch_Zebrev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TicketSearch_Zebrev.entitlements; sourceTree = "<group>"; };
+		5CCB83682069B3A0009FA800 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5CCB83692069B3A0009FA800 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5CD14529204386EA00FD9DCA /* Ticket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ticket.h; sourceTree = "<group>"; };
+		5CD1452A204386EA00FD9DCA /* Ticket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ticket.m; sourceTree = "<group>"; };
+		5CD1452D20438EEA00FD9DCA /* TicketTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicketTableViewCell.h; sourceTree = "<group>"; };
+		5CD1452E20438EEA00FD9DCA /* TicketTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicketTableViewCell.m; sourceTree = "<group>"; };
+		5CD14530204390BC00FD9DCA /* TicketsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicketsViewController.h; sourceTree = "<group>"; };
+		5CD14531204390BC00FD9DCA /* TicketsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicketsViewController.m; sourceTree = "<group>"; };
+		80B1411763D82F8C2E3E84F1 /* Pods-TicketSearch_ZebrevTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketSearch_ZebrevTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TicketSearch_ZebrevTests/Pods-TicketSearch_ZebrevTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9B7E09F1E475B44B7CDE0DCE /* libPods-TicketSearch_Zebrev.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TicketSearch_Zebrev.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6059AD7C49D4DD75622B0E8 /* Pods-TicketSearch_ZebrevTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketSearch_ZebrevTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TicketSearch_ZebrevTests/Pods-TicketSearch_ZebrevTests.release.xcconfig"; sourceTree = "<group>"; };
+		DC565A534A02F333FF100DF8 /* Pods-TicketSearch_ZebrevUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketSearch_ZebrevUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TicketSearch_ZebrevUITests/Pods-TicketSearch_ZebrevUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9100FD99CA246DFB17B70CE /* libPods-TicketSearch_Zebrev.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D1ABB588A6523FB09069982 /* libPods-TicketSearch_ZebrevTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,19 +161,80 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D70590F9C7664228BA684ED8 /* libPods-TicketSearch_ZebrevUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C09870E202522AE002187F9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5C1AD98720669D5D0047DCA7 /* First */,
+				5C098713202531B5002187F9 /* Place */,
+				5CD1452C20438ECB00FD9DCA /* Ticket */,
+				5C723B832021F8F200138C8D /* MainViewController.h */,
+				5C723B842021F8F200138C8D /* MainViewController.m */,
+				5C1AD96D206579B70047DCA7 /* TabBarController.h */,
+				5C1AD96E206579B70047DCA7 /* TabBarController.m */,
+				5C1AD984206685A90047DCA7 /* ProgressView.h */,
+				5C1AD985206685A90047DCA7 /* ProgressView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5C098713202531B5002187F9 /* Place */ = {
+			isa = PBXGroup;
+			children = (
+				5C09870F202522E5002187F9 /* PlaceViewController.h */,
+				5C098710202522E5002187F9 /* PlaceViewController.m */,
+				5C098714202531F5002187F9 /* CustomTableViewCell.h */,
+				5C098715202531F5002187F9 /* CustomTableViewCell.m */,
+			);
+			path = Place;
+			sourceTree = "<group>";
+		};
+		5C1AD98720669D5D0047DCA7 /* First */ = {
+			isa = PBXGroup;
+			children = (
+				5C1AD9882066A1C20047DCA7 /* ContentViewController.h */,
+				5C1AD9892066A1C20047DCA7 /* ContentViewController.m */,
+				5C1AD98B2066A3620047DCA7 /* FirstViewController.h */,
+				5C1AD98C2066A3620047DCA7 /* FirstViewController.m */,
+			);
+			path = First;
+			sourceTree = "<group>";
+		};
+		5C1AD98E2066B1E90047DCA7 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				5C1AD98F2066B2010047DCA7 /* NotificationCenter.h */,
+				5C1AD9902066B2010047DCA7 /* NotificationCenter.m */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		5C1AD9922066B7790047DCA7 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				5C1AD9932066B82F0047DCA7 /* NSString+Localize.h */,
+				5C1AD9942066B82F0047DCA7 /* NSString+Localize.m */,
+				5C1AD9A22066BB6E0047DCA7 /* InfoPlist.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		5C723B742021F8F200138C8D = {
 			isa = PBXGroup;
 			children = (
+				5C1AD99A2066B96B0047DCA7 /* Localizable.strings */,
 				5C723B7F2021F8F200138C8D /* TicketSearch_Zebrev */,
 				5C723B982021F8F200138C8D /* TicketSearch_ZebrevTests */,
 				5C723BA32021F8F300138C8D /* TicketSearch_ZebrevUITests */,
 				5C723B7E2021F8F200138C8D /* Products */,
+				F12638F82A5E9E69428A2A86 /* Pods */,
+				CE7A10C07E6C679E88303EFF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,13 +251,16 @@
 		5C723B7F2021F8F200138C8D /* TicketSearch_Zebrev */ = {
 			isa = PBXGroup;
 			children = (
+				5CC391AF206A61D20040BB3E /* TicketSearch_Zebrev.entitlements */,
+				5C1AD9922066B7790047DCA7 /* Localization */,
+				5C1AD98E2066B1E90047DCA7 /* Notification */,
+				5C09870E202522AE002187F9 /* View */,
+				5C723BC02021FFFE00138C8D /* data */,
+				5C723BBC2021FD5400138C8D /* Model */,
+				5C723BB22021FB1F00138C8D /* Entity */,
 				5C723B802021F8F200138C8D /* AppDelegate.h */,
 				5C723B812021F8F200138C8D /* AppDelegate.m */,
-				5C723B832021F8F200138C8D /* ViewController.h */,
-				5C723B842021F8F200138C8D /* ViewController.m */,
-				5C723B862021F8F200138C8D /* Main.storyboard */,
 				5C723B892021F8F200138C8D /* Assets.xcassets */,
-				5C723B8B2021F8F200138C8D /* LaunchScreen.storyboard */,
 				5C723B8E2021F8F200138C8D /* Info.plist */,
 				5C723B8F2021F8F200138C8D /* main.m */,
 			);
@@ -132,6 +285,79 @@
 			path = TicketSearch_ZebrevUITests;
 			sourceTree = "<group>";
 		};
+		5C723BB22021FB1F00138C8D /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				5C723BB32021FB4100138C8D /* Country.h */,
+				5C723BB42021FB4100138C8D /* Country.m */,
+				5C723BB62021FC1200138C8D /* City.h */,
+				5C723BB72021FC1200138C8D /* City.m */,
+				5C723BB92021FCB200138C8D /* Airport.h */,
+				5C723BBA2021FCB200138C8D /* Airport.m */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		5C723BBC2021FD5400138C8D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5C723BBD2021FD6300138C8D /* DataManager.h */,
+				5C723BBE2021FD6300138C8D /* DataManager.m */,
+				5C1C0E68202C80BF00955A6D /* APIManager.h */,
+				5C1C0E69202C80BF00955A6D /* APIManager.m */,
+				5C1AD964205D720C0047DCA7 /* LocationService.h */,
+				5C1AD965205D720C0047DCA7 /* LocationService.m */,
+				5C1AD967205D75440047DCA7 /* MapPrice.h */,
+				5C1AD968205D75440047DCA7 /* MapPrice.m */,
+				5C1AD96A205D76F40047DCA7 /* MapViewController.h */,
+				5C1AD96B205D76F40047DCA7 /* MapViewController.m */,
+				5C1AD97B206608090047DCA7 /* CoreDataHelper.h */,
+				5C1AD97C206608090047DCA7 /* CoreDataHelper.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5CD1452C20438ECB00FD9DCA /* Ticket */ = {
+			isa = PBXGroup;
+			children = (
+				5C1AD97F206614150047DCA7 /* FavoriteTicket+CoreDataClass.h */,
+				5C1AD980206614160047DCA7 /* FavoriteTicket+CoreDataClass.m */,
+				5C1AD981206614160047DCA7 /* FavoriteTicket+CoreDataProperties.h */,
+				5C1AD97E206614150047DCA7 /* FavoriteTicket+CoreDataProperties.m */,
+				5CD14529204386EA00FD9DCA /* Ticket.h */,
+				5CD1452A204386EA00FD9DCA /* Ticket.m */,
+				5CD1452D20438EEA00FD9DCA /* TicketTableViewCell.h */,
+				5CD1452E20438EEA00FD9DCA /* TicketTableViewCell.m */,
+				5CD14530204390BC00FD9DCA /* TicketsViewController.h */,
+				5CD14531204390BC00FD9DCA /* TicketsViewController.m */,
+				5C1AD970206584720047DCA7 /* FavoriteTicket.xcdatamodeld */,
+			);
+			path = Ticket;
+			sourceTree = "<group>";
+		};
+		CE7A10C07E6C679E88303EFF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B7E09F1E475B44B7CDE0DCE /* libPods-TicketSearch_Zebrev.a */,
+				2C035BBFEC95B2C82CB2833F /* libPods-TicketSearch_ZebrevTests.a */,
+				4A39BE1E9ECE2794ABCA1497 /* libPods-TicketSearch_ZebrevUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F12638F82A5E9E69428A2A86 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				251501FAA684E970F241496F /* Pods-TicketSearch_Zebrev.debug.xcconfig */,
+				309C5E2EA9A41F7BF85725AD /* Pods-TicketSearch_Zebrev.release.xcconfig */,
+				80B1411763D82F8C2E3E84F1 /* Pods-TicketSearch_ZebrevTests.debug.xcconfig */,
+				D6059AD7C49D4DD75622B0E8 /* Pods-TicketSearch_ZebrevTests.release.xcconfig */,
+				4BC6D717F28FBF2517CF98E3 /* Pods-TicketSearch_ZebrevUITests.debug.xcconfig */,
+				DC565A534A02F333FF100DF8 /* Pods-TicketSearch_ZebrevUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,9 +365,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5C723BA92021F8F300138C8D /* Build configuration list for PBXNativeTarget "TicketSearch_Zebrev" */;
 			buildPhases = (
+				A4D022B0CD6FE9C1F822FA2A /* [CP] Check Pods Manifest.lock */,
 				5C723B792021F8F200138C8D /* Sources */,
 				5C723B7A2021F8F200138C8D /* Frameworks */,
 				5C723B7B2021F8F200138C8D /* Resources */,
+				40894F4274B9B0189BF59BF1 /* [CP] Embed Pods Frameworks */,
+				3A0E4B5F269986209A6E8C9C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -156,9 +385,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5C723BAC2021F8F300138C8D /* Build configuration list for PBXNativeTarget "TicketSearch_ZebrevTests" */;
 			buildPhases = (
+				37D5C78CD226EB1EE9B2F90A /* [CP] Check Pods Manifest.lock */,
 				5C723B912021F8F200138C8D /* Sources */,
 				5C723B922021F8F200138C8D /* Frameworks */,
 				5C723B932021F8F200138C8D /* Resources */,
+				6E51B8E12BA5B93E213E2B05 /* [CP] Embed Pods Frameworks */,
+				4137EAE5064C717841D1BCAD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -174,9 +406,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5C723BAF2021F8F300138C8D /* Build configuration list for PBXNativeTarget "TicketSearch_ZebrevUITests" */;
 			buildPhases = (
+				7911FED6696996DE83B49850 /* [CP] Check Pods Manifest.lock */,
 				5C723B9C2021F8F300138C8D /* Sources */,
 				5C723B9D2021F8F300138C8D /* Frameworks */,
 				5C723B9E2021F8F300138C8D /* Resources */,
+				FC10E85FBA99CB66E95E2CC5 /* [CP] Embed Pods Frameworks */,
+				0F59522CEF3CCB4DC52F54B0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -200,6 +435,11 @@
 					5C723B7C2021F8F200138C8D = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 					5C723B942021F8F200138C8D = {
 						CreatedOnToolsVersion = 9.2;
@@ -220,6 +460,8 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
+				de,
 			);
 			mainGroup = 5C723B742021F8F200138C8D;
 			productRefGroup = 5C723B7E2021F8F200138C8D /* Products */;
@@ -238,9 +480,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C723B8D2021F8F200138C8D /* LaunchScreen.storyboard in Resources */,
+				5C723BC12021FFFE00138C8D /* data in Resources */,
+				5C1AD9A02066BB6E0047DCA7 /* InfoPlist.strings in Resources */,
+				5C1AD9982066B96B0047DCA7 /* Localizable.strings in Resources */,
 				5C723B8A2021F8F200138C8D /* Assets.xcassets in Resources */,
-				5C723B882021F8F200138C8D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,13 +503,183 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0F59522CEF3CCB4DC52F54B0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TicketSearch_ZebrevUITests/Pods-TicketSearch_ZebrevUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		37D5C78CD226EB1EE9B2F90A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TicketSearch_ZebrevTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3A0E4B5F269986209A6E8C9C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TicketSearch_Zebrev/Pods-TicketSearch_Zebrev-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		40894F4274B9B0189BF59BF1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TicketSearch_Zebrev/Pods-TicketSearch_Zebrev-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4137EAE5064C717841D1BCAD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TicketSearch_ZebrevTests/Pods-TicketSearch_ZebrevTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E51B8E12BA5B93E213E2B05 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TicketSearch_ZebrevTests/Pods-TicketSearch_ZebrevTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7911FED6696996DE83B49850 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TicketSearch_ZebrevUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A4D022B0CD6FE9C1F822FA2A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TicketSearch_Zebrev-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC10E85FBA99CB66E95E2CC5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TicketSearch_ZebrevUITests/Pods-TicketSearch_ZebrevUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5C723B792021F8F200138C8D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C723B852021F8F200138C8D /* ViewController.m in Sources */,
+				5C1AD983206614160047DCA7 /* FavoriteTicket+CoreDataClass.m in Sources */,
+				5C723BB82021FC1200138C8D /* City.m in Sources */,
+				5C1AD96F206579B70047DCA7 /* TabBarController.m in Sources */,
+				5C1AD98A2066A1C20047DCA7 /* ContentViewController.m in Sources */,
+				5CD14532204390BC00FD9DCA /* TicketsViewController.m in Sources */,
+				5C723BB52021FB4100138C8D /* Country.m in Sources */,
+				5C723BBF2021FD6300138C8D /* DataManager.m in Sources */,
+				5C1AD98D2066A3620047DCA7 /* FirstViewController.m in Sources */,
+				5C1AD972206584720047DCA7 /* FavoriteTicket.xcdatamodeld in Sources */,
+				5C1AD97D206608090047DCA7 /* CoreDataHelper.m in Sources */,
+				5CD1452F20438EEA00FD9DCA /* TicketTableViewCell.m in Sources */,
+				5C1AD9912066B2010047DCA7 /* NotificationCenter.m in Sources */,
+				5C1AD986206685A90047DCA7 /* ProgressView.m in Sources */,
+				5C723B852021F8F200138C8D /* MainViewController.m in Sources */,
+				5C1AD982206614160047DCA7 /* FavoriteTicket+CoreDataProperties.m in Sources */,
+				5C1C0E6A202C80BF00955A6D /* APIManager.m in Sources */,
+				5C1AD9952066B82F0047DCA7 /* NSString+Localize.m in Sources */,
+				5C098711202522E5002187F9 /* PlaceViewController.m in Sources */,
+				5C098716202531F5002187F9 /* CustomTableViewCell.m in Sources */,
+				5C1AD969205D75440047DCA7 /* MapPrice.m in Sources */,
+				5C723BBB2021FCB200138C8D /* Airport.m in Sources */,
+				5C1AD96C205D76F40047DCA7 /* MapViewController.m in Sources */,
+				5CD1452B204386EA00FD9DCA /* Ticket.m in Sources */,
 				5C723B902021F8F200138C8D /* main.m in Sources */,
+				5C1AD966205D720C0047DCA7 /* LocationService.m in Sources */,
 				5C723B822021F8F200138C8D /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,20 +716,24 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5C723B862021F8F200138C8D /* Main.storyboard */ = {
+		5C1AD99A2066B96B0047DCA7 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5C723B872021F8F200138C8D /* Base */,
+				5C1AD99C2066B9AE0047DCA7 /* ru */,
+				5C1AD99D2066B9D40047DCA7 /* en */,
+				5CCB83682069B3A0009FA800 /* de */,
 			);
-			name = Main.storyboard;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
-		5C723B8B2021F8F200138C8D /* LaunchScreen.storyboard */ = {
+		5C1AD9A22066BB6E0047DCA7 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5C723B8C2021F8F200138C8D /* Base */,
+				5C1AD9A12066BB6E0047DCA7 /* en */,
+				5C1AD9A32066BB6F0047DCA7 /* ru */,
+				5CCB83692069B3A0009FA800 /* de */,
 			);
-			name = LaunchScreen.storyboard;
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -326,6 +743,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -381,6 +799,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -428,32 +847,45 @@
 		};
 		5C723BAA2021F8F300138C8D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 251501FAA684E970F241496F /* Pods-TicketSearch_Zebrev.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y5J222RX3V;
 				INFOPLIST_FILE = TicketSearch_Zebrev/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "home.TicketSearch-Zebrev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		5C723BAB2021F8F300138C8D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 309C5E2EA9A41F7BF85725AD /* Pods-TicketSearch_Zebrev.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y5J222RX3V;
 				INFOPLIST_FILE = TicketSearch_Zebrev/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "home.TicketSearch-Zebrev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 		5C723BAD2021F8F300138C8D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80B1411763D82F8C2E3E84F1 /* Pods-TicketSearch_ZebrevTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -468,6 +900,7 @@
 		};
 		5C723BAE2021F8F300138C8D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6059AD7C49D4DD75622B0E8 /* Pods-TicketSearch_ZebrevTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -482,6 +915,7 @@
 		};
 		5C723BB02021F8F300138C8D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BC6D717F28FBF2517CF98E3 /* Pods-TicketSearch_ZebrevUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TicketSearch_ZebrevUITests/Info.plist;
@@ -495,6 +929,7 @@
 		};
 		5C723BB12021F8F300138C8D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC565A534A02F333FF100DF8 /* Pods-TicketSearch_ZebrevUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TicketSearch_ZebrevUITests/Info.plist;
@@ -546,6 +981,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5C1AD970206584720047DCA7 /* FavoriteTicket.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5C1AD971206584720047DCA7 /* FavoriteTicket.xcdatamodel */,
+			);
+			currentVersion = 5C1AD971206584720047DCA7 /* FavoriteTicket.xcdatamodel */;
+			path = FavoriteTicket.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5C723B752021F8F200138C8D /* Project object */;
 }
