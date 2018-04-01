@@ -31,14 +31,18 @@
     
     MainViewController  *mainViewController = [[ MainViewController   alloc ]  init]  ;
     
-    mainViewController. tabBarItem = [[ UITabBarItem  alloc ]  initWithTitle : [@"search_tab" localize] image:[ UIImage imageNamed : @"search" ]  selectedImage :[UIImage   imageNamed : @"search_selected" ]];
+    mainViewController. tabBarItem = [[UITabBarItem alloc] initWithTitle:[@"search_tab" localize] image: [UIImage imageNamed:@"data/resource/search.png"] selectedImage:[UIImage imageNamed:@"data/resource/search_selected.png"]];
+    
+    /*
+    mainViewController. tabBarItem = [[ UITabBarItem  alloc ]  initWithTitle : [@"search_tab" localize] image:[ UIImage imageNamed : @"data/resource/search.png" ]  selectedImage :[UIImage   imageNamed : @"data/resource/search_selected.png" ]];
+    */
     
     UINavigationController *mainNavigationController = [[ UINavigationController  alloc ] initWithRootViewController :mainViewController];
     
     [controllers  addObject :mainNavigationController];
     
     MapViewController  *mapViewController = [[ MapViewController   alloc ]  init ];
-    mapViewController. tabBarItem = [[ UITabBarItem  alloc ]  initWithTitle : [@"map_tab" localize] image:[ UIImage                                                                                         imageNamed :@"map" ] selectedImage :[UIImage imageNamed :@"map_selected" ]];
+    mapViewController. tabBarItem = [[ UITabBarItem  alloc ]  initWithTitle : [@"map_tab" localize] image:[ UIImage                                                                                         imageNamed :@"data/resource/map_find.png" ] selectedImage :[UIImage imageNamed :@"data/resource/map_find_selected.png" ]];
     
     UINavigationController *mapNavigationController = [[ UINavigationController alloc ]                                                      initWithRootViewController :mapViewController];
 
@@ -46,7 +50,7 @@
                                                        
     TicketsViewController *favoriteViewController = [[TicketsViewController alloc] initFavoriteTicketsController ];
     
-    favoriteViewController.tabBarItem = [[ UITabBarItem  alloc ]  initWithTitle : [@"favorites_tab" localize] image:[ UIImage  imageNamed:   @"favorite" ]  selectedImage :[UIImage imageNamed : @"favorite_selected" ]];
+    favoriteViewController.tabBarItem = [[ UITabBarItem  alloc ]  initWithTitle : [@"favorites_tab" localize] image:[ UIImage  imageNamed:   @"data/resource/favorites.png" ]  selectedImage :[UIImage imageNamed : @"data/resource/favorites_selected.png" ]];
     
     UINavigationController *favoriteNavigationController = [[ UINavigationController  alloc ] initWithRootViewController :favoriteViewController];
     

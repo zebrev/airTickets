@@ -7,6 +7,7 @@
 //
 
 #import "LocationService.h"
+#import "NSString+Localize.h"
 
 @implementation   LocationService
 
@@ -29,9 +30,9 @@
         [_locationManager startUpdatingLocation];
     }  else   if  (status != kCLAuthorizationStatusNotDetermined) {
         
-        UIAlertController *alertController2 = [ UIAlertController alertControllerWithTitle: @"Упс!" message: @"Не удалось определить текущий город!"  preferredStyle:  UIAlertControllerStyleAlert ];
+        UIAlertController *alertController2 = [ UIAlertController alertControllerWithTitle: [@"opps!" localize] message: [@"not_determine_current_city" localize] preferredStyle:  UIAlertControllerStyleAlert ];
         
-        [alertController2 addAction:[ UIAlertAction actionWithTitle: @"Закрыть" style:( UIAlertActionStyleDefault )
+        [alertController2 addAction:[ UIAlertAction actionWithTitle: [@"close" localize] style:( UIAlertActionStyleDefault )
                                                             handler: nil ]];
         
         [[ UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alertController2 animated: YES  completion: nil ];
@@ -42,8 +43,17 @@
 
 - ( void )locationManager:( CLLocationManager *)manager didUpdateLocations:( NSArray < CLLocation *> *)locations {
     
+
+    
     if  (!_currentLocation) {
-        _currentLocation = [locations firstObject]; [_locationManager stopUpdatingLocation];
+
+        //_currentLocation = [locations firstObject];
+        
+        //зададим по умолчанию Москву
+        _currentLocation = [[CLLocation alloc] initWithLatitude:55.7522200 longitude:37.6155600];
+        
+        [_locationManager stopUpdatingLocation];
+        
         
         [[NSNotificationCenter defaultCenter] postNotificationName:kLocationServiceDidUpdateCurrentLocation object:_currentLocation];
         

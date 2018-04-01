@@ -101,7 +101,7 @@
         newComponents. hour  = components. hour ;
         newComponents. minute  = components. minute ;
         
-        NSLog(@"%ld - %ld - %ld - %ld",(long)newComponents.month,(long)newComponents.day,(long)newComponents.hour,(long)newComponents.minute);
+        //NSLog(@"%ld - %ld - %ld - %ld",(long)newComponents.month,(long)newComponents.day,(long)newComponents.hour,(long)newComponents.minute);
         
         //NSLog(@"content = %@",content);
         

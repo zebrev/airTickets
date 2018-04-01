@@ -33,11 +33,11 @@
 {
     dispatch_async( dispatch_get_global_queue(QOS_CLASS_UTILITY , 0) , ^{
         
-        NSArray * countriesJsonArray  = [self arrayFromFileName:@"data/countries" ofType: @"json"] ;
+        NSArray * countriesJsonArray  = [self arrayFromFileName:@"data/jsonData/countries" ofType: @"json"] ;
         _countriesArray  = [self createObjectsFromArray:countriesJsonArray  withType: DataSourceTypeCountry];
-        NSArray * citiesJsonArray  = [self arrayFromFileName:@"data/cities" ofType: @"json"] ;
+        NSArray * citiesJsonArray  = [self arrayFromFileName:@"data/jsonData/cities" ofType: @"json"] ;
         _citiesArray  = [self createObjectsFromArray:citiesJsonArray withType: DataSourceTypeCity];
-        NSArray * airportsJsonArray  = [self arrayFromFileName:@"data/airports" ofType: @"json"] ;
+        NSArray * airportsJsonArray  = [self arrayFromFileName:@"data/jsonData/airports" ofType: @"json"] ;
         _airportsArray  = [self createObjectsFromArray:airportsJsonArray withType: DataSourceTypeAirport];
         dispatch_async( dispatch_get_main_queue(), ^{
             [[NSNotificationCenter  defaultCenter]  postNotificationName:kDataManagerLoadDataDidComplete object: nil] ;

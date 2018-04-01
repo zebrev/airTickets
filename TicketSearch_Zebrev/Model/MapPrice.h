@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "City.h"
+#import "Airport.h"
 
 @interface   MapPrice  :  NSObject
 
+//указываем координаты не аэропорта на карте, а города (т.к. сейчас города не связаны с аэропортами)
 @property  ( strong ,  nonatomic ) City *destination;
 @property  ( strong ,  nonatomic ) City *origin;
 @property  ( strong ,  nonatomic )  NSDate  *departure;

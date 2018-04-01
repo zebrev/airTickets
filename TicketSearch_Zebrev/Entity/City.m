@@ -45,7 +45,6 @@
         if ([ _translations   valueForKey : localeId]) {
             
             self. name  = [ _translations   valueForKey : localeId];
-            
         }
     }
 }
