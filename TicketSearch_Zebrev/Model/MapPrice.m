@@ -21,6 +21,9 @@
         _returnDate = [ self  dateFromString:[dictionary valueForKey: @"return_date" ]];
         _numberOfChanges = [[dictionary valueForKey: @"number_of_changes" ] integerValue];
         _value = [[dictionary valueForKey: @"value" ] integerValue];
+        
+//        NSLog(@"value price = %ld, city = %@",_value,_destination.name);
+        
         _distance = [[dictionary valueForKey: @"distance"]  integerValue];
         _actual = [[dictionary valueForKey: @"actual"]  boolValue];
     }

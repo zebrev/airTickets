@@ -45,6 +45,9 @@
 "notification_will_be_sent"  =  "Уведомление будет отправлено" ;
 "success"  =  "Успешно" ;
 
+"ticketSearch" = "Билеты из поиска";
+"ticketMap" = "Билеты с карты";
+
 // Alerts
 "error"  =  "Ошибка" ;
 
@@ -56,3 +59,7 @@
 "actions_with_tickets_describe"  =  "Что необходимо сделать с выбранным билетом?";
 "not_determine_current_city"  =  "Не удалось определить текущий город!" ;
 
+//Map
+
+"annotation title" = "добавить";
+"annotation add done" = "добавлен!";

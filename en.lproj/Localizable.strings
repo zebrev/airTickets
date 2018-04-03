@@ -45,6 +45,9 @@
 "notification_will_be_sent"  =  "Notification will be sent" ;
 "success"  =  "Success" ;
 
+"ticketSearch" = "Tickets from search";
+"ticketMap" = "Tickets from map";
+
 // Alerts
 "error"  =  "Error" ;
 "opps!" = "Oppss!";
@@ -54,3 +57,8 @@
 "actions_with_tickets"  =  "Actions with tickets" ;
 "actions_with_tickets_describe"  =  "Actions with tickets describe?";
 "not_determine_current_city"  =  "Not determine current city!" ;
+
+//Map
+
+"annotation title" = "add ticket";
+"annotation add done" = "added!";

@@ -73,7 +73,7 @@
     return  [ self   favoriteFromTicket :ticket] !=  nil ;
 }
 
-- ( void )addToFavorite:( Ticket  *)ticket {
+- ( void )addToFavorite:( Ticket  *)ticket{
     FavoriteTicket *favorite = [NSEntityDescription  insertNewObjectForEntityForName : @"FavoriteTicket" inManagedObjectContext : _managedObjectContext ];
     
     favorite. price  = ticket. price . intValue ;
@@ -82,6 +82,7 @@
     favorite. expires  = ticket. expires ;
     favorite. flightNumber  = ticket. flightNumber . intValue ;
     favorite. returnDate  = ticket. returnDate ;
+    favorite. typeTicket  = ticket. typeTicket . intValue ;
     favorite. from  = ticket. from ;
     favorite. to  = ticket. to ;
     favorite. created  = [ NSDate   date ];
@@ -97,10 +98,13 @@
     }
 }
 
-- ( NSArray  *)favorites {
+- ( NSArray  *)favorites:(int )typeTicket {
     NSFetchRequest  *request = [ NSFetchRequest   fetchRequestWithEntityName : @"FavoriteTicket" ];
     request.sortDescriptors  =  @[[ NSSortDescriptor   sortDescriptorWithKey : @"created"   ascending : NO ]] ;
 
+    request. predicate = [ NSPredicate  predicateWithFormat : @"typeTicket == %ld" , ( long )typeTicket];
+
+    
     return [ _managedObjectContext  executeFetchRequest: request error : nil ];
 }
 

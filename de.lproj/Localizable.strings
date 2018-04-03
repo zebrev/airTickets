@@ -45,6 +45,9 @@
 "notification_will_be_sent"  =  "Die Benachrichtigung wird gesendet" ;
 "success"  =  "Erfolgreich" ;
 
+"ticketSearch" = "Tickets von der Sucheм";
+"ticketMap" = "Tickets von der Karte";
+
 // Alerts
 "error"  =  "Fehler" ;
 "opps!" = "Upss!";
@@ -55,3 +58,7 @@
 "actions_with_tickets_describe"  =  "Was tun mit dem ausgewählten Ticket?";
 "not_determine_current_city"  =  "Die aktuelle Stadt konnte nicht ermittelt werden!" ;
 
+//Map
+
+"annotation title" = "hinzufügen Ticket";
+"annotation add done" = "hinzugefügt!";

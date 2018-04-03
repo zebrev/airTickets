@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *to;
 @property (nonatomic) int64_t price;
 @property (nonatomic) int16_t flightNumber;
+@property (nonatomic) int16_t typeTicket;       //=1 - это избранные билеты из поиска, =2 - избранные билеты с карты
 
 @end
 

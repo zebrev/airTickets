@@ -17,7 +17,7 @@
 + ( instancetype )sharedInstance;
 
 - ( BOOL )isFavorite:( Ticket  *)ticket;
-- ( NSArray  *)favorites;
+- ( NSArray  *)favorites:(int )typeTicket;
 - ( void )addToFavorite:( Ticket  *)ticket;
 - ( void )removeFromFavorite:( Ticket  *)ticket;
 

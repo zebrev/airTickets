@@ -18,6 +18,7 @@
 @dynamic departure;
 @dynamic expires;
 @dynamic returnDate;
+@dynamic typeTicket;
 @dynamic airline;
 @dynamic from;
 @dynamic to;

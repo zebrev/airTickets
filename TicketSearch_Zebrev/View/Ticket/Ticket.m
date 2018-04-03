@@ -19,7 +19,9 @@
         _departure  =  dateFromString ([dictionary valueForKey : @"departure_at" ]);
         _flightNumber  = [dictionary  valueForKey : @"flight_number" ];
         _price  = [dictionary  valueForKey :@"price" ];
-    }  _returnDate  =  dateFromString ([dictionary  valueForKey : @"return_at" ]);
+        _returnDate  =  dateFromString ([dictionary  valueForKey : @"return_at" ]);
+        _typeTicket = 0;    //1 или 2 только для избранных билетов
+    }
 
     return self ;
 }

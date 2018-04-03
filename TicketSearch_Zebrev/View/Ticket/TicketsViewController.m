@@ -20,7 +20,7 @@
 @property  ( nonatomic ,  strong )  NSArray  *tickets;
 @property  ( nonatomic ,  strong )  UIDatePicker  *datePicker;
 @property  ( nonatomic ,  strong )  UITextField  *dateTextField;
-
+@property  ( nonatomic,   strong)   UISegmentedControl *segmentControl;
 
 
 @end
@@ -87,19 +87,45 @@
 }
 
 
+- ( void) changeSource {
+    switch (_segmentControl.selectedSegmentIndex) {
+        case  0:
+            _tickets  = [[ CoreDataHelper  sharedInstance ]  favorites: 1];
+            break;
+        case  1:
+            _tickets  = [[ CoreDataHelper  sharedInstance ]  favorites: 2];
+            break;
+        default:
+            
+            break;
+            
+    }
+    self . navigationController . navigationBar . prefersLargeTitles  =  YES ;
+    [ self. tableView reloadData];
+    
+}
+
+
 - ( void )viewDidAppear:( BOOL )animated {
     [ super   viewDidAppear :animated];
  
     if (self.isStartFavorites)
         isFavorites= YES;
-    
-    //Считаем список избранных билетов из CoreData
-    if  ( isFavorites ) {
+
+    if (isFavorites || self.isStartFavorites==1) {
+        _segmentControl  = [[ UISegmentedControl   alloc ] initWithItems:@[[@"ticketSearch" localize],[@"ticketMap" localize]]];
         
-        self . navigationController . navigationBar . prefersLargeTitles  =  YES ;
-        _tickets  = [[ CoreDataHelper  sharedInstance ]  favorites ];
-        [ self . tableView   reloadData ];
+        [_segmentControl addTarget: self action: @selector( changeSource) forControlEvents: UIControlEventValueChanged] ;
+        _segmentControl.tintColor = [ UIColor blackColor];
+        
+        self. navigationItem.titleView = _segmentControl;
+        _segmentControl.selectedSegmentIndex =  0;
+        
+        //Считаем список избранных билетов из CoreData
+        [ self changeSource];
+        
     }
+
 
     //Если на старте задан определенный билет - найдем его в списке
     if (self.firstFlightNumber) {
@@ -142,10 +168,18 @@
    
     TicketTableViewCell *cell = [tableView  dequeueReusableCellWithIdentifier :TicketCellReuseIdentifier forIndexPath :indexPath];
     
+   
     if  ( isFavorites ) {
-        cell.favoriteTicket  = [ _tickets   objectAtIndex:  indexPath. row ];
+        
+            FavoriteTicket * currentTicket =[ _tickets   objectAtIndex:  indexPath. row ];
+        
+//        if (_segmentControl.selectedSegmentIndex==1 && currentTicket.typeTicket!=2) return nil;
+        
+        
+        cell.favoriteTicket  = currentTicket;
     }  else  {
-        cell. ticket  = [ _tickets   objectAtIndex :indexPath.row ];
+        Ticket * currentTicket =[ _tickets   objectAtIndex:  indexPath. row ];
+        cell. ticket  = currentTicket;
         
     }
     
@@ -197,7 +231,13 @@ return  cell;
        
         favoriteAction = [UIAlertAction  actionWithTitle :[@"add_to_favorite" localize] style: UIAlertActionStyleDefault  handler:^( UIAlertAction  *  _Nonnull  action) {
             
-            [[ CoreDataHelper   sharedInstance ]  addToFavorite:  [ _tickets   objectAtIndex :indexPath. row ]];
+            
+            Ticket * currentTicket =[ _tickets   objectAtIndex :indexPath. row ];
+            
+            //добавили из поиска - тип 1
+            currentTicket.typeTicket=[NSNumber numberWithInt:1];
+            
+            [[ CoreDataHelper   sharedInstance ]  addToFavorite:  currentTicket];
 
             TicketsViewController  *ticketsViewController = [[ TicketsViewController   alloc ]
                                                              initFavoriteTicketsController];
@@ -221,7 +261,7 @@ return  cell;
         
         notificationCell  = [tableView  cellForRowAtIndexPath :indexPath];
         
-        NSLog(@"notification = %@ ",notificationCell.ticket);
+        //NSLog(@"notification = %@ ",notificationCell.ticket);
         [ _dateTextField   becomeFirstResponder ];
         
     }];
@@ -265,8 +305,13 @@ return  cell;
         [[ NotificationCenter   sharedInstance ]  sendNotification :notification ticketFlightNumber:notificationCell.ticket.flightNumber];
 
         //сам билет автоматически добавим в избранное, если он еще не добавлен
-        if  (![[ CoreDataHelper   sharedInstance ]  isFavorite : notificationCell.ticket])
+        if  (![[ CoreDataHelper   sharedInstance ]  isFavorite : notificationCell.ticket]) {
+            
+            //добавили из поиска - тип 1
+            notificationCell.ticket.typeTicket=[NSNumber numberWithInt:1];
+            
             [[ CoreDataHelper   sharedInstance ]  addToFavorite:notificationCell.ticket]  ;
+        }
 
         UIAlertController  *alertController = [ UIAlertController   alertControllerWithTitle : [@"success" localize] message:[ NSString   stringWithFormat : @"%@ - %@" ,[@"notification_will_be_sent" localize],_datePicker.date] preferredStyle:( UIAlertControllerStyleAlert )];
 
