@@ -47,6 +47,7 @@
 
 "ticketSearch" = "Tickets from search";
 "ticketMap" = "Tickets from map";
+"ticketFavoritesAll" = "All favorites tickets";
 
 // Alerts
 "error"  =  "Error" ;

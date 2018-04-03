@@ -47,6 +47,7 @@
 
 "ticketSearch" = "Билеты из поиска";
 "ticketMap" = "Билеты с карты";
+"ticketFavoritesAll" = "Все избранные билеты";
 
 // Alerts
 "error"  =  "Ошибка" ;

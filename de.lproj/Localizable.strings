@@ -47,6 +47,7 @@
 
 "ticketSearch" = "Tickets von der Sucheм";
 "ticketMap" = "Tickets von der Karte";
+"ticketFavoritesAll" = "alle ausgewählten Tickets";
 
 // Alerts
 "error"  =  "Fehler" ;

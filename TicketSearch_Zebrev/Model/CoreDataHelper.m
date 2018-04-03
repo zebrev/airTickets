@@ -102,7 +102,9 @@
     NSFetchRequest  *request = [ NSFetchRequest   fetchRequestWithEntityName : @"FavoriteTicket" ];
     request.sortDescriptors  =  @[[ NSSortDescriptor   sortDescriptorWithKey : @"created"   ascending : NO ]] ;
 
-    request. predicate = [ NSPredicate  predicateWithFormat : @"typeTicket == %ld" , ( long )typeTicket];
+    if (typeTicket>0)
+        
+        request. predicate = [ NSPredicate  predicateWithFormat : @"typeTicket == %ld" , ( long )typeTicket];
 
     
     return [ _managedObjectContext  executeFetchRequest: request error : nil ];

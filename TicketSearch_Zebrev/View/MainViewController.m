@@ -101,7 +101,7 @@ UIButton * button;
     if  ( _searchRequest . origin  &&  _searchRequest.   destionation ) {
         [[ ProgressView   sharedInstance ]  show :^{
             
-            NSLog(@"request = $%@,%@,%@,%@",_searchRequest.departDate,_searchRequest.destionation,_searchRequest.origin,_searchRequest.returnDate);
+            //NSLog(@"request = $%@,%@,%@,%@",_searchRequest.departDate,_searchRequest.destionation,_searchRequest.origin,_searchRequest.returnDate);
             
             [[ APIManager   sharedInstance ] ticketsWithRequest : _searchRequest   withCompletion :^( NSArray
                                                                                                        *tickets) {

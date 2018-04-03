@@ -90,9 +90,15 @@
 - ( void) changeSource {
     switch (_segmentControl.selectedSegmentIndex) {
         case  0:
-            _tickets  = [[ CoreDataHelper  sharedInstance ]  favorites: 1];
+            //все избранные билеты
+            _tickets  = [[ CoreDataHelper  sharedInstance ]  favorites: 0];
             break;
         case  1:
+            //только из поиска
+            _tickets  = [[ CoreDataHelper  sharedInstance ]  favorites: 1];
+            break;
+        case  2:
+            //добавленные с карты
             _tickets  = [[ CoreDataHelper  sharedInstance ]  favorites: 2];
             break;
         default:
@@ -113,7 +119,7 @@
         isFavorites= YES;
 
     if (isFavorites || self.isStartFavorites==1) {
-        _segmentControl  = [[ UISegmentedControl   alloc ] initWithItems:@[[@"ticketSearch" localize],[@"ticketMap" localize]]];
+        _segmentControl  = [[ UISegmentedControl   alloc ] initWithItems:@[[@"ticketFavoritesAll" localize],[@"ticketSearch" localize],[@"ticketMap" localize]]];
         
         [_segmentControl addTarget: self action: @selector( changeSource) forControlEvents: UIControlEventValueChanged] ;
         _segmentControl.tintColor = [ UIColor blackColor];
